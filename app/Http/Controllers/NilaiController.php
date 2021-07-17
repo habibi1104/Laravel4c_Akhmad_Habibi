@@ -14,7 +14,7 @@ use alert;
 
 class NilaiController extends Controller
 {
-public function index()
+public function index() 
 {
         
         $nilai = Nilai::with(['mahasiswa', 'makul'])->get();
@@ -32,15 +32,15 @@ public function index()
 {
         Nilai::create($request->all());
         alert()->success('Success','Data Berhasil Disimpan');
-        return redirect()->route('nilai'); //cara baca setelah selesai tolong jalankan ke arah index(data mahasiswa)
+        return redirect()->route('nilai'); 
 }
 
    public function edit($id)
 {
         $mahasiswa = Mahasiswa::all();
         $makul = Makul::all();
-        $nilai = Nilai::find($id); //select * from nama_table where id = $id;
-        return view('nilai.edit', compact('nilai','mahasiswa', 'makul')); //Compact itu boleh 2
+        $nilai = Nilai::find($id);
+        return view('nilai.edit', compact('nilai','mahasiswa', 'makul')); 
 }
 
    public function update(Request $request, $id)
